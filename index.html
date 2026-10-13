@@ -365,7 +365,7 @@ body{margin:0;background:#070B14}
     <div style="max-width:1180px;margin:0 auto">
       <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">04 // FEATURED WORK</div>
       <h2 data-rv="" data-rvd="1" style="margin:0 0 12px;font-size:clamp(30px,4vw,44px);font-weight:650;letter-spacing:-0.02em;line-height:1.05">Things I've shipped</h2>
-      <p data-rv="" data-rvd="2" style="margin:0 0 42px;color:#9AA9C0;font-size:15.5px;line-height:1.6;max-width:620px">Real systems with real numbers. From a production robot's full AI stack to research pipelines still running today.</p>
+      <p data-rv="" data-rvd="2" style="margin:0 0 42px;color:#9AA9C0;font-size:15.5px;line-height:1.6;max-width:620px">Real systems with real numbers. From a production robot's full AI stack to RAG and agent systems, production full-stack platforms, and research pipelines.</p>
 
       <div data-rv="" data-rvd="3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));border:1px solid rgba(63,212,255,0.28);border-radius:16px;overflow:hidden;margin-bottom:18px;background:rgba(13,20,35,0.55);box-shadow:0 24px 70px rgba(0,0,0,0.35)">
         <div style="padding:clamp(24px,3.5vw,36px)">
@@ -481,6 +481,79 @@ body{margin:0;background:#070B14}
           <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px">
             <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#5F7089">Isolation Forest · Python · R</span>
             <a href="https://github.com/Kirandkv/Spike_detect" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);text-decoration:none">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div data-rv="" data-rvd="0" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:11px;transition:border-color 0.25s,transform 0.25s" style-hover="border-color:rgba(63,212,255,0.5);transform:translateY(-4px)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#5F7089">LLM · RAG · AGENTS</div>
+          <div style="font-size:17.5px;font-weight:650;letter-spacing:-0.01em">FieldForge AI Suite</div>
+          <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">Five connected AI services, measured not just demoed. Grounded document Q&amp;A with hybrid retrieval and citations, a human supervised incident agent, a two agent A2A/MCP mesh, and an LLMOps gate that blocks deployment on failing evals.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">Recall@5 1.0</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">13/13 guardrail cases</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">159 tests in CI</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#5F7089">RAG · MCP · A2A · LLMOps · Qdrant · Ollama · FastAPI</span>
+            <a href="https://github.com/Kirandkv/Field" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);text-decoration:none">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div data-rv="" data-rvd="1" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:11px;transition:border-color 0.25s,transform 0.25s" style-hover="border-color:rgba(63,212,255,0.5);transform:translateY(-4px)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#5F7089">MULTI-AGENT LLM · PRIVATE</div>
+          <div style="font-size:17.5px;font-weight:650;letter-spacing:-0.01em">AI Invoice-Review Copilot</div>
+          <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">Hybrid retrieval grounds each LLM explanation in contract clauses, a deterministic evidence verifier rejects findings that cite text missing from the source, and one provider layer serves Anthropic, Azure OpenAI, and local Ollama.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">130/130 e2e tests</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">row-level security</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">6-role RBAC</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#5F7089">FastAPI · PostgreSQL · Docker · Playwright</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5F7089">private repo</span>
+          </div>
+        </div>
+
+        <div data-rv="" data-rvd="2" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:11px;transition:border-color 0.25s,transform 0.25s" style-hover="border-color:rgba(63,212,255,0.5);transform:translateY(-4px)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#5F7089">FULL-STACK · IN PRODUCTION</div>
+          <div style="font-size:17.5px;font-weight:650;letter-spacing:-0.01em">Karma Restaurant HR</div>
+          <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">Workforce platform running real payroll for a 30 person restaurant team. Face ID attendance with liveness detection, GPS geofenced check-ins, a 5 stage payroll approval chain, and a UAE end-of-service calculator across 6 roles.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">live payroll</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">42 xUnit tests</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">IDOR + payroll-lock coverage</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#5F7089">ASP.NET Core · EF Core · SQL Server · Identity</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5F7089">private repo</span>
+          </div>
+        </div>
+
+        <div data-rv="" data-rvd="3" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:11px;transition:border-color 0.25s,transform 0.25s" style-hover="border-color:rgba(63,212,255,0.5);transform:translateY(-4px)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#5F7089">FULL-STACK · ANDROID</div>
+          <div style="font-size:17.5px;font-weight:650;letter-spacing:-0.01em">ZS School</div>
+          <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">School management platform with 4 role portals (Management, Teacher, Student, Parent), analytics dashboards, Excel export, and an Android companion app, shipped with versioned IIS deploys, health checks, and a rollback runbook.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">4 role portals</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">v2.1.0</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#5F7089">ASP.NET Core (.NET 9) · EF Core · SQL Server</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5F7089">private repo</span>
+          </div>
+        </div>
+
+        <div data-rv="" data-rvd="4" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;padding:22px;display:flex;flex-direction:column;gap:11px;transition:border-color 0.25s,transform 0.25s" style-hover="border-color:rgba(63,212,255,0.5);transform:translateY(-4px)">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#5F7089">WEB · WORDPRESS · DJANGO</div>
+          <div style="font-size:17.5px;font-weight:650;letter-spacing:-0.01em">Websites &amp; software</div>
+          <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">Designed and run the sites for Zenon Petroleum, Zenon Lubricants (59 pages, product catalogue, search, flipbook, SEO) and Karma Dubai. Also built RentFlow, a Django/PostgreSQL rental ledger platform with 144 tests.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">3 live sites</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ok,#4ADE9C);border:1px solid rgba(74,222,156,0.3);border-radius:5px;padding:3px 8px">RentFlow: 144 tests</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#5F7089"><a href="https://zenonpetroleum.ae" target="_blank" rel="noopener" style="color:var(--ac,#3FD4FF);text-decoration:none">zenonpetroleum.ae</a> · <a href="https://zenonlub.com" target="_blank" rel="noopener" style="color:var(--ac,#3FD4FF);text-decoration:none">zenonlub.com</a> · <a href="https://karma-dubai.com" target="_blank" rel="noopener" style="color:var(--ac,#3FD4FF);text-decoration:none">karma-dubai.com</a></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5F7089"></span>
           </div>
         </div>
 
@@ -738,7 +811,7 @@ body{margin:0;background:#070B14}
             <img src="assets/banff-street.png" alt="Kiran in Banff" style="width:56px;height:56px;border-radius:50%;border:2px solid rgba(63,212,255,0.4);background:#0A0F1A;object-fit:cover;object-position:50% 20%">
             <div>
               <div style="font-size:17px;font-weight:650">@Kirandkv</div>
-              <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0">AI robotics · edge AI · computer vision</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0">AI robotics · edge AI · computer vision · LLM, RAG &amp; agents</div>
             </div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
@@ -753,6 +826,10 @@ body{margin:0;background:#070B14}
           </div>
         </div>
         <div style="display:flex;flex-direction:column;gap:11px">
+          <a data-rv="" href="https://github.com/Kirandkv/Field" target="_blank" rel="noopener" style="display:block;background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:11px;padding:16px 18px;text-decoration:none;transition:border-color 0.2s,transform 0.2s" style-hover="border-color:rgba(63,212,255,0.5);transform:translateX(4px)">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:600;color:var(--ac,#3FD4FF)">Field</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5F7089">↗</span></div>
+            <div style="font-size:12.5px;color:#9AA9C0;margin-top:5px;line-height:1.5">FieldForge AI Suite: grounded RAG Q&amp;A, a human supervised incident agent, an A2A/MCP agent mesh, and an LLMOps quality gate. 159 tests.</div>
+          </a>
           <a data-rv="" href="https://github.com/Kirandkv/System_arch" target="_blank" rel="noopener" style="display:block;background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:11px;padding:16px 18px;text-decoration:none;transition:border-color 0.2s,transform 0.2s" style-hover="border-color:rgba(63,212,255,0.5);transform:translateX(4px)">
             <div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px"><span style="font-family:'JetBrains Mono',monospace;font-size:13.5px;font-weight:600;color:var(--ac,#3FD4FF)">System_arch</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5F7089">↗</span></div>
             <div style="font-size:12.5px;color:#9AA9C0;margin-top:5px;line-height:1.5">Interactive architecture map of Robin's full AI stack, with ROS2, Jetson, vision, and voice.</div>
