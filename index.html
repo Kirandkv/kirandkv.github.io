@@ -36,6 +36,33 @@ body{margin:0;background:#070B14}
 [data-theme="light"]{background:#EEF2F9 !important;color:#12203A !important}
 [data-theme="light"] a{color:#1663C7}
 [data-theme="light"] a:hover{color:#0E4EA0}
+/* ── Design lab ── */
+#works .w-card{transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s}
+#works .w-card:hover{border-color:rgba(63,212,255,0.5);transform:translateY(-4px);box-shadow:0 18px 50px rgba(0,0,0,0.35)}
+#works .w-shot{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0A101C}
+#works .w-d{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.7s cubic-bezier(0.2,0.7,0.3,1)}
+#works .w-card:hover .w-d{transform:scale(1.045)}
+#works .w-phone{position:absolute;right:12px;bottom:-26px;width:22%;aspect-ratio:260/563;border-radius:12px;border:3px solid #0B1220;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.5);transition:transform 0.4s cubic-bezier(0.2,0.7,0.3,1);background:#0B1220}
+#works .w-phone img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+#works .w-card:hover .w-phone{transform:translateY(-12px)}
+#works .w-open{position:absolute;left:10px;bottom:10px;z-index:2;opacity:0;transform:translateY(6px);transition:opacity 0.25s,transform 0.25s}
+#works .w-card:hover .w-open,#works a:focus-visible .w-open{opacity:1;transform:translateY(0)}
+#works a:focus-visible{outline:2px solid var(--ac,#3FD4FF);outline-offset:2px}
+#works .wf{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+#works .wf-lab{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#9AA9C0;border:1px solid rgba(148,175,220,0.25);border-radius:999px;padding:7px 15px;cursor:pointer;user-select:none;transition:border-color 0.2s,color 0.2s,background 0.2s}
+#works .wf-lab:hover{border-color:var(--ac,#3FD4FF);color:#E9EFFA}
+#works .wf:focus-visible+.wf-lab{outline:2px solid var(--ac,#3FD4FF);outline-offset:2px}
+#works .wf:checked+.wf-lab{background:rgba(63,212,255,0.12);border-color:var(--ac,#3FD4FF);color:var(--ac,#3FD4FF)}
+#works:has(#wf-app:checked) .w-card:not([data-k~="app"]),#works:has(#wf-site:checked) .w-card:not([data-k~="site"]),#works:has(#wf-food:checked) .w-card:not([data-k~="food"]){display:none !important}
+[data-theme="light"] #works .wf-lab{color:#4E5C70;border-color:rgba(30,55,100,0.22)}
+[data-theme="light"] #works .wf-lab:hover{color:#0E1826}
+[data-theme="light"] #works .wf:checked+.wf-lab{color:#1663C7;background:rgba(22,99,199,0.08);border-color:#1663C7}
+[data-theme="light"] #works .w-live{color:#1663C7 !important;border-color:rgba(22,99,199,0.45) !important}
+[data-theme="light"] #works .w-badge[data-tone="ok"]{color:#0B6B3F !important;border-color:rgba(11,107,63,0.5) !important}
+[data-theme="light"] #works .w-badge[data-tone="wa"]{color:#9A4B0A !important;border-color:rgba(154,75,10,0.55) !important}
+@media (hover:none){#works .w-open{display:none}}
+@media (max-width:560px){#works .w-phone{width:26%;right:10px}}
+/* ── /Design lab ── */
 </style>
 </helmet>
 <div ref="{{rootRef}}" data-motion="on" style="--ac:#3FD4FF;--wa:#FFAB5E;--ok:#4ADE9C;background:#070B14;color:#E9EFFA;font-family:'Space Grotesk',system-ui,sans-serif;min-height:100vh;overflow-x:clip">
@@ -51,6 +78,7 @@ body{margin:0;background:#070B14}
       <a href="#about" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9AA9C0;text-decoration:none" style-hover="color:#E9EFFA">ABOUT</a>
       <a href="#experience" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9AA9C0;text-decoration:none" style-hover="color:#E9EFFA">EXPERIENCE</a>
       <a href="#projects" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9AA9C0;text-decoration:none" style-hover="color:#E9EFFA">PROJECTS</a>
+      <a href="#works" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9AA9C0;text-decoration:none" style-hover="color:#E9EFFA">WORKS</a>
       <a href="#skills" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9AA9C0;text-decoration:none" style-hover="color:#E9EFFA">SKILLS</a>
       <a href="#offduty" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9AA9C0;text-decoration:none" style-hover="color:#E9EFFA">OFF-DUTY</a>
       <a href="#contact" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:0.1em;color:#9AA9C0;text-decoration:none" style-hover="color:#E9EFFA">CONTACT</a>
@@ -553,7 +581,7 @@ body{margin:0;background:#070B14}
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px">
             <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#5F7089"><a href="https://zenonpetroleum.ae" target="_blank" rel="noopener" style="color:var(--ac,#3FD4FF);text-decoration:none">zenonpetroleum.ae</a> · <a href="https://zenonlub.com" target="_blank" rel="noopener" style="color:var(--ac,#3FD4FF);text-decoration:none">zenonlub.com</a> · <a href="https://karma-dubai.com" target="_blank" rel="noopener" style="color:var(--ac,#3FD4FF);text-decoration:none">karma-dubai.com</a></span>
-            <span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#5F7089"></span>
+            <a href="#works" style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);text-decoration:none" style-hover="text-decoration:underline">see all live demos &#8595;</a>
           </div>
         </div>
 
@@ -565,10 +593,342 @@ body{margin:0;background:#070B14}
     </div>
   </section>
 
+
+
+
+
+<!-- WORKS-START -->
+  <!-- ══ DESIGN LAB ══ -->
+  <section id="works" data-screen-label="Design Lab" style="position:relative;padding:96px clamp(20px,6vw,80px);scroll-margin-top:70px;background:#0A101C;border-top:1px solid rgba(148,175,220,0.1);border-bottom:1px solid rgba(148,175,220,0.1)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">05 // DESIGN LAB</div>
+      <h2 data-rv="" data-rvd="1" style="margin:0 0 12px;font-size:clamp(30px,4vw,44px);font-weight:650;letter-spacing:-0.02em;line-height:1.05">Websites &amp; software you can click</h2>
+      <p data-rv="" data-rvd="2" style="margin:0 0 22px;color:#9AA9C0;font-size:15.5px;line-height:1.6;max-width:680px">Live demos running on Cloudflare Workers. I design the pages, build the portals and ordering systems behind them, and wire up the data. Every card opens a real site and every site is a demo with no real customers. Cards marked CONCEPT or UNOFFICIAL reuse a real restaurant's published details without its approval.</p>
+      <div data-rv="" data-rvd="3" style="display:flex;flex-wrap:wrap;gap:8px 22px;margin-bottom:30px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;color:#9AA9C0">
+        <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:7px;height:7px;border-radius:50%;background:var(--ok,#4ADE9C);animation:kd-pulse 2.4s infinite"></span>14 LIVE SITES</span>
+        <span>CLOUDFLARE WORKERS (D1 FOR THE APPS)</span>
+        <span>5 DESIGN LANGUAGES, ONE PORTAL CODEBASE</span>
+      </div>
+
+      <div role="radiogroup" aria-label="Filter the demos" style="position:relative;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px">
+        <input class="wf" type="radio" name="wf" id="wf-all" checked><label class="wf-lab" for="wf-all">ALL &middot; 13</label>
+        <input class="wf" type="radio" name="wf" id="wf-app"><label class="wf-lab" for="wf-app">APPS &amp; PORTALS &middot; 9</label>
+        <input class="wf" type="radio" name="wf" id="wf-site"><label class="wf-lab" for="wf-site">WEBSITES &middot; 4</label>
+        <input class="wf" type="radio" name="wf" id="wf-food"><label class="wf-lab" for="wf-food">RESTAURANTS &middot; 5</label>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:18px;align-items:stretch">
+
+        <article class="w-card" data-rv="" data-rvd="1" data-k="app" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://dak-school-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Cedarbrook International School" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">dak-school-demo.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/dak-school-d.webp" alt="Screenshot of the Cedarbrook International School website: a forest photo with a stationery-style programme card" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL CLIENT</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/dak-school-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE + PORTAL · FICTIONAL SCHOOL</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Cedarbrook International School</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">A school site styled as printed stationery: a programme card over a forest photograph, fees as filed bars, a grade finder by date of birth. It signs in to a four-role portal for management, teachers, parents and students.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Hono</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">D1</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://dak-school-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Cedarbrook International School (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a><a href="https://dak-school-demo.kiranvaideswaran.workers.dev/Account/Login" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0;text-decoration:none;padding:7px 4px" style-hover="color:#E9EFFA">Portal sign-in <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="2" data-k="app" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://dak-karate-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Kumo Karate Dojo" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">dak-karate-demo.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/dak-karate-d.webp" alt="Screenshot of the Kumo Karate Dojo website: a belt-colour ladder across the top and the headline Karate for every belt" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL CLIENT</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/dak-karate-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE + PORTAL · FICTIONAL DOJO</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Kumo Karate Dojo</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">One motif: the belt. A belt ladder stripes the first screen, and a belt picker shows the next belt, its minimum classes and the next grading date. Enquiries land in the dojo&#x27;s member portal.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Hono</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">D1</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://dak-karate-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Kumo Karate Dojo (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a><a href="https://dak-karate-demo.kiranvaideswaran.workers.dev/Account/Login" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0;text-decoration:none;padding:7px 4px" style-hover="color:#E9EFFA">Portal sign-in <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="3" data-k="app" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://dak-swim-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Seaglass Swim Academy" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">dak-swim-demo.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/dak-swim-d.webp" alt="Screenshot of the Seaglass Swim Academy website: pool water filling the screen with lane ropes and the headline Learn to swim in Umm Suqeim" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL CLIENT</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/dak-swim-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE + PORTAL · FICTIONAL SWIM SCHOOL</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Seaglass Swim Academy</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">Water fills the first screen with moving light and lane ropes. Six level cards, each listing its skills, slip up into view as you scroll, and this week&#x27;s open lesson places come straight from the lesson book.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Hono</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">D1</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://dak-swim-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Seaglass Swim Academy (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a><a href="https://dak-swim-demo.kiranvaideswaran.workers.dev/Account/Login" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0;text-decoration:none;padding:7px 4px" style-hover="color:#E9EFFA">Portal sign-in <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="1" data-k="app" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://dak-nursery-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Pebble &amp; Pip Nursery" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">dak-nursery-demo.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/dak-nursery-d.webp" alt="Screenshot of the Pebble and Pip Nursery website: bright orange page with colourful letter blocks spelling HELLO" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL CLIENT</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/dak-nursery-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE + PORTAL · FICTIONAL NURSERY</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Pebble &amp; Pip Nursery</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">Crayon-coloured chapters and letter blocks that spell hello, and a child&#x27;s name as it is typed. The day&#x27;s diary on the page is read from the Toddlers room&#x27;s own log; each family sees their own child&#x27;s in the portal.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Hono</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">D1</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://dak-nursery-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Pebble &amp; Pip Nursery (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a><a href="https://dak-nursery-demo.kiranvaideswaran.workers.dev/Account/Login" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0;text-decoration:none;padding:7px 4px" style-hover="color:#E9EFFA">Family sign-in <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="2" data-k="app" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://dak-salon-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Atelier Noor" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">dak-salon-demo.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/dak-salon-d.webp" alt="Screenshot of the Atelier Noor hair and skin studio website: a dark room with a lit water lily" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL CLIENT</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/dak-salon-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE + PORTAL · FICTIONAL STUDIO</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Atelier Noor</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">A dark room where a few things are lit. Stylists and services come from the studio book, and free times are calculated from each stylist&#x27;s shifts and existing bookings; picking one fills the request form.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Hono</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">D1</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://dak-salon-demo.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Atelier Noor (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a><a href="https://dak-salon-demo.kiranvaideswaran.workers.dev/Account/Login" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0;text-decoration:none;padding:7px 4px" style-hover="color:#E9EFFA">Staff sign-in <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="3" data-k="app food" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://floorbite-v1.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of FloorBite: menu-first ordering" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">floorbite-v1.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/floorbite-v1-d.webp" alt="Screenshot of the FloorBite ordering site: cream editorial layout, a curry illustration and a lunch bag cart" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="wa" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--wa,#FFAB5E);background:rgba(7,11,20,0.78);border:1px solid rgba(255,171,94,0.55);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">UNOFFICIAL SAMPLE</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/floorbite-v1-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">ORDERING APP</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">FloorBite: menu-first ordering</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">Restaurant ordering in one Next.js app: menu, favourites, cart, pickup or office-floor delivery, scheduled orders and token-protected tracking, plus a role-based staff workspace for kitchen and dispatch (sign-in only; demo access on request). Uses Biryani Republic JLT&#x27;s name as an unofficial sample, not affiliated. Sample menu; WhatsApp and online payments are deliberately not connected.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Next.js</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers + D1</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Staff roles</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://floorbite-v1.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of FloorBite: menu-first ordering (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a><a href="https://floorbite-v2.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA9C0;text-decoration:none;padding:7px 4px" style-hover="color:#E9EFFA">V2 landing <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="1" data-k="app food" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://floorbite-other.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of FloorBite: restaurant edition" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">floorbite-other.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/floorbite-other-d.webp" alt="Screenshot of the FloorBite restaurant edition: a green restaurant homepage with the headline Your neighborhood kitchen" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="wa" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--wa,#FFAB5E);background:rgba(7,11,20,0.78);border:1px solid rgba(255,171,94,0.55);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">UNOFFICIAL SAMPLE</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/floorbite-other-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">ORDERING APP</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">FloorBite: restaurant edition</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">The same ordering engine in a green, restaurant-first design: a list-style menu, three ordering steps and a visible staff sign-in link. Each edition is its own Worker with its own database. Uses Biryani Republic JLT&#x27;s name as an unofficial sample, not affiliated.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Next.js</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers + D1</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Staff roles</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://floorbite-other.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of FloorBite: restaurant edition (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="2" data-k="app food" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://coconcurry.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Coco N Curry" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">coconcurry.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/coconcurry-d.webp" alt="Screenshot of the Coco N Curry website concept: a warm orange Kerala restaurant page with the headline Come hungry, leave happy" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="wa" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--wa,#FFAB5E);background:rgba(7,11,20,0.78);border:1px solid rgba(255,171,94,0.55);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">CONCEPT · UNOFFICIAL</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/coconcurry-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">ORDERING APP</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Coco N Curry</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">An orange Kerala-restaurant website concept with a searchable menu and a working sample ordering flow (cash orders only); the staff workspace is shown on request. A concept the restaurant has not approved, built from its published Zomato menu. Orders placed here are demonstrations and are not sent to the restaurant.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers + D1</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Ordering demo</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Menu search</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://coconcurry.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Coco N Curry (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="3" data-k="site food" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://biryani-republic-website.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Biryani Republic" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">biryani-republic-website.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/biryani-republic-website-d.webp" alt="Screenshot of the Biryani Republic website concept: a bold editorial hero with a copper pot of biryani" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="wa" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--wa,#FFAB5E);background:rgba(7,11,20,0.78);border:1px solid rgba(255,171,94,0.55);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">CONCEPT · UNOFFICIAL</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/biryani-republic-website-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Biryani Republic</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">A bold editorial restaurant site concept with a searchable 86-item menu that links to Talabat for ordering. A concept the restaurant has not approved, not its official site; prices are Talabat-listed reference data and the hero food image is AI-generated.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Static site</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers assets</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Menu search</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://biryani-republic-website.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Biryani Republic (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="1" data-k="app" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://dak.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Fanoos Homes on DAK" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">dak.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/dak-d.webp" alt="Screenshot of the Fanoos Homes website: a drawn building facade whose windows light up where rooms are free" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL CLIENT</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/dak-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">RENTAL OPS PLATFORM</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Fanoos Homes on DAK</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">DAK is a multi-tenant rental-operations app on Workers and D1, shown through a made-up Dubai property company. The site draws building facades whose windows light up where rooms are free, fed from lease data. Reservations are call-back requests only.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Workers + D1</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Multi-tenant</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Lease data</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://dak.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Fanoos Homes on DAK (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="2" data-k="site food" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://lantern.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Lantern House" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">lantern.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/lantern-d.webp" alt="Screenshot of the Lantern House restaurant template: a dark candlelit hero with the headline Seasonal cooking, unhurried evenings" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL BRAND</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/lantern-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE TEMPLATE</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Lantern House</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">A brand-neutral 16-page restaurant website generated from a brand config file plus a content file (menu, offers, journal), so a new client is mostly a swap of name, colours and copy. Comes as a static site and as a WordPress edition.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Static + WordPress</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Config-driven</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://lantern.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Lantern House (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="3" data-k="site" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://ridgeway.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Ridgeway Energy" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">ridgeway.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/ridgeway-d.webp" alt="Screenshot of the Ridgeway Energy template: a dark navy fuel supply site with a tanker illustration" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL BRAND</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/ridgeway-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE TEMPLATE</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Ridgeway Energy</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">A 19-page fuel supply and logistics site with instant search and demo quote forms, generated from a brand config file plus a content file (products, services, articles). Comes as a static site and as a WordPress edition.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Static + WordPress</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Site search</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://ridgeway.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Ridgeway Energy (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="w-card" data-rv="" data-rvd="1" data-k="site" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;overflow:hidden;display:flex;flex-direction:column">
+          <a href="https://northline.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Open the live demo of Northline Lubricants" tabindex="-1" style="display:block;text-decoration:none;color:inherit">
+            <div style="display:flex;align-items:center;gap:6px;padding:9px 12px;background:rgba(13,20,35,0.6);border-bottom:1px solid rgba(148,175,220,0.1)">
+              <span style="display:flex;gap:5px"><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span><span style="width:7px;height:7px;border-radius:50%;background:rgba(148,175,220,0.28);display:block"></span></span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#9AA9C0;margin-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">northline.kiranvaideswaran.workers.dev</span>
+            </div>
+            <div class="w-shot">
+              <img class="w-d" src="assets/works/northline-d.webp" alt="Screenshot of the Northline Lubricants template: oil bottles on a teal hero with the headline Oils and fluids for vehicles, machinery and vessels" width="960" height="600" loading="lazy" decoding="async">
+              <span class="w-badge" data-tone="ok" style="position:absolute;left:10px;top:10px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;color:var(--ok,#4ADE9C);background:rgba(7,11,20,0.78);border:1px solid rgba(74,222,156,0.5);border-radius:5px;padding:3px 7px;backdrop-filter:blur(6px)">FICTIONAL BRAND</span>
+              <span class="w-open" style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#06121E;background:var(--ac,#3FD4FF);border-radius:6px;padding:5px 10px;font-weight:600">OPEN LIVE &#8599;</span>
+              <span class="w-phone"><img src="assets/works/northline-m.webp" alt="" width="260" height="563" loading="lazy" decoding="async"></span>
+            </div>
+          </a>
+          <div style="padding:24px 20px 18px;display:flex;flex-direction:column;gap:10px;flex:1">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:#9AA9C0">WEBSITE TEMPLATE</div>
+            <h3 style="margin:0;font-size:18px;font-weight:650;letter-spacing:-0.01em;color:#E9EFFA">Northline Lubricants</h3>
+            <p style="margin:0;font-size:13px;color:#9AA9C0;line-height:1.6;flex:1">A 47-page lubricants catalogue site with find-your-oil tabs, product search and a datasheet filter, rebranded from one config file (name, colours, fonts, ranges, contact). Comes as a static site and as a WordPress edition.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:7px"><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Static + WordPress</span><span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#9AA9C0;border:1px solid rgba(148,175,220,0.18);border-radius:5px;padding:3px 8px">Datasheet filter</span></div>
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:6px 14px;border-top:1px solid rgba(148,175,220,0.1);padding-top:12px;margin-top:2px">
+              <a class="w-live" href="https://northline.kiranvaideswaran.workers.dev/" target="_blank" rel="noopener" aria-label="Live demo of Northline Lubricants (opens in a new tab)" style="display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ac,#3FD4FF);border:1px solid rgba(63,212,255,0.4);border-radius:7px;padding:7px 12px;text-decoration:none;transition:background 0.2s" style-hover="background:rgba(63,212,255,0.12)">Live demo <span aria-hidden="true">&#8599;</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p data-rv="" style="margin:30px 0 0;max-width:760px;font-size:12.5px;color:#9AA9C0;line-height:1.65">Cards marked CONCEPT or UNOFFICIAL are my own designs using a real business's name: not their official sites and not endorsed by them. The five DAK demo portals list their sample accounts on the sign-in page; the staff workspaces behind FloorBite and Coco N Curry are shown on request. The DAK demos, Fanoos Homes and the website templates were built with Claude Code as a coding partner. The repos are private, so I'm happy to walk through the code or share access on request.</p>
+    </div>
+  </section>
+<!-- WORKS-END -->
+
   <!-- ══ SKILLS ══ -->
   <section id="skills" data-screen-label="Skills" style="position:relative;padding:96px clamp(20px,6vw,80px);scroll-margin-top:70px;background:#0A101C;border-top:1px solid rgba(148,175,220,0.1);border-bottom:1px solid rgba(148,175,220,0.1)">
     <div style="max-width:1180px;margin:0 auto">
-      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">05 // CONTROL PANEL</div>
+      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">06 // CONTROL PANEL</div>
       <h2 data-rv="" data-rvd="1" style="margin:0 0 42px;font-size:clamp(30px,4vw,44px);font-weight:650;letter-spacing:-0.02em;line-height:1.05">Systems &amp; tooling</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,255px),1fr));gap:14px">
 
@@ -689,7 +1049,7 @@ body{margin:0;background:#070B14}
   <!-- ══ RESUME ══ -->
   <section id="resume" data-screen-label="Resume" style="position:relative;padding:96px clamp(20px,6vw,80px);scroll-margin-top:70px">
     <div style="max-width:1180px;margin:0 auto">
-      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">06 // RESUME</div>
+      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">07 // RESUME</div>
       <h2 data-rv="" data-rvd="1" style="margin:0 0 42px;font-size:clamp(30px,4vw,44px);font-weight:650;letter-spacing:-0.02em;line-height:1.05">The one pager</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:15px;margin-bottom:22px">
         <div data-rv="" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;padding:24px">
@@ -730,7 +1090,7 @@ body{margin:0;background:#070B14}
   <section id="offduty" data-screen-label="Outside the Terminal" style="position:relative;padding:96px clamp(20px,6vw,80px);scroll-margin-top:70px;background:#0A101C;border-top:1px solid rgba(148,175,220,0.1);border-bottom:1px solid rgba(148,175,220,0.1);overflow:hidden">
     <svg width="22" height="16" viewBox="-2 -8 22 16" style="position:absolute;top:0;left:0;offset-path:path('M -60 140 C 400 40, 900 240, 1700 90');offset-rotate:auto;animation:kd-fly 22s linear 3s infinite;opacity:0;pointer-events:none"><polygon points="0,-6 18,0 0,6 4.5,0" fill="rgba(233,239,250,0.5)"></polygon></svg>
     <div style="max-width:1180px;margin:0 auto;position:relative">
-      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--wa,#FFAB5E);margin-bottom:14px">07 // OFF-DUTY</div>
+      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--wa,#FFAB5E);margin-bottom:14px">08 // OFF-DUTY</div>
       <div data-rv="" data-rvd="1" style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 26px;margin-bottom:30px">
         <h2 style="margin:0;font-size:clamp(30px,4vw,44px);font-weight:650;letter-spacing:-0.02em;line-height:1.05">Outside the terminal</h2>
         <p style="margin:0;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.7;color:#9AA9C0;max-width:360px">When the robots power down, I go looking for altitude, good light, and the next stamp in the passport.</p>
@@ -822,7 +1182,7 @@ body{margin:0;background:#070B14}
   <!-- ══ GITHUB ══ -->
   <section id="github" data-screen-label="GitHub" style="position:relative;padding:96px clamp(20px,6vw,80px);scroll-margin-top:70px">
     <div style="max-width:1180px;margin:0 auto">
-      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">08 // GITHUB</div>
+      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">09 // GITHUB</div>
       <h2 data-rv="" data-rvd="1" style="margin:0 0 42px;font-size:clamp(30px,4vw,44px);font-weight:650;letter-spacing:-0.02em;line-height:1.05">Where the code lives</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:15px">
         <div data-rv="" style="background:rgba(13,20,35,0.55);border:1px solid rgba(148,175,220,0.14);border-radius:13px;padding:24px;display:flex;flex-direction:column;gap:18px">
@@ -869,7 +1229,7 @@ body{margin:0;background:#070B14}
   <!-- ══ CONTACT ══ -->
   <section id="contact" data-screen-label="Contact" style="position:relative;padding:96px clamp(20px,6vw,80px) 90px;scroll-margin-top:70px;background:#0A101C;border-top:1px solid rgba(148,175,220,0.1)">
     <div style="max-width:760px;margin:0 auto;text-align:center">
-      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">09 // CONTACT</div>
+      <div data-rv="" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;color:var(--ac,#3FD4FF);margin-bottom:14px">10 // CONTACT</div>
       <h2 data-rv="" data-rvd="1" style="margin:0 0 12px;font-size:clamp(32px,4.6vw,50px);font-weight:650;letter-spacing:-0.02em;line-height:1.05">Let's build something intelligent.</h2>
       <p data-rv="" data-rvd="2" style="margin:0 0 38px;color:#9AA9C0;font-size:15.5px;line-height:1.6">AI/ML engineering roles, LLM and agent systems, edge AI and robotics problems, or just trading travel routes. My inbox is open.</p>
 
